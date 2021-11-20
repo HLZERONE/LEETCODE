@@ -1,0 +1,22 @@
+class Solution {
+public:
+    int timeRequiredToBuy(vector<int>& tickets, int k) {
+        int time = 0;
+        int count = 0;
+        int round = tickets[k];
+        for(int i=0; i<tickets.size(); i++){
+            if(tickets[i] - round >= 0){
+                time += round;
+            }
+            else{
+                time += tickets[i];
+                if(i > k){
+                    count++;
+                }
+            }
+        }
+        time -= (tickets.size()-1-k);
+        time += count;
+        return time;
+    }
+};
