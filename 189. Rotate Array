@@ -1,0 +1,15 @@
+class Solution {
+public:
+    void rotate(vector<int>& nums, int k) {
+        vector<int> newn(nums.size());
+        int move = k;
+        for(int i=0; i<nums.size(); i++){
+            while(move > nums.size()-1){
+                move = move-nums.size();
+            }
+            newn[move] = nums[i];
+            move++;
+        }
+        nums = newn;
+    }
+};
